@@ -1,10 +1,26 @@
 @use '../helpers' as *;
 
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation-name: scrolling-header;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: rem(100) rem(200);
+
+
+    @keyframes scrolling-header {
+        to {
+             box-shadow: 0 0 1rem 0 var(--color-dark-40);
+        }
+    }
+
     &__promo {
         padding-block: rem(20);
         text-align: center;
         border-bottom: var(--border);
+        background-color: var(--color-dark);
 
         @include mobile {
             padding-block: rem(14);
@@ -42,8 +58,8 @@
             row-gap: 3rem;
             padding: 1rem;
             background-color: var(--color-dark-10);
-            transition-duration: var(--transition-duration);            
-            
+            transition-duration: var(--transition-duration);
+
             &:not(.is-active) {
                 @include hide;
 
@@ -54,6 +70,7 @@
 
     &__menu {
         overflow-y: auto;
+
         &-list {
             display: flex;
             align-items: center;

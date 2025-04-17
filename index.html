@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" data-js-header>
         <div class="header__promo">
             <div class="header__promo-inner container">
                 <a class="header__promo-link" href="#">
@@ -24,7 +24,7 @@
                     <img src="./images/logo.svg" alt="" class="logo__image" width="179" height="50" />
                 </a>
 
-                <div class="header__overlay">
+                <div class="header__overlay" data-js-overlay>
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li class="header__menu_item">
@@ -47,7 +47,8 @@
 
 
                 <button type="button" aria-label="Open menu" title="Open menu"
-                    class="header__burger-button burger-button visible-mobile">
+                    class="header__burger-button burger-button visible-mobile"
+                    data-js-burger-button>
                     <span class="burger-button__line"></span>
                     <span class="burger-button__line"></span>
                     <span class="burger-button__line"></span>
@@ -55,6 +56,14 @@
             </div>
         </div>
     </header>
+
+    <main>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, quo?
+    </main>
+
+    <footer class="footer">
+        <h1>Footer</h1>
+    </footer>
 
     <script src="./scripts/main.js" type="module" defer></script>
 </body>
