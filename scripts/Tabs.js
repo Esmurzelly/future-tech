@@ -20,12 +20,24 @@ class Tabs {
         this.rootElement = rootELement;
         this.buttonElements = this.rootElement.querySelectorAll(this.selectors.button);
         this.contentElements = this.rootElement.querySelectorAll(this.selectors.content);
-        this.state = {
+        this.state = this.getProxyState({
             activeTabIndex: [...this.buttonElements]
                 .findIndex((buttonElement) => buttonElement.classList.contains(this.stateClassses.isActive))
-        }
-        this.limitTabsInde = this.buttonElements.length - 1;
+        })
+        this.limitTabsIndex = this.buttonElements.length - 1;
         this.bindEvents();
+    }
+    getProxyState(initialState) {
+        return new Proxy(initialState, {
+            get: (target, prop) => {
+                return target[prop];
+            },
+            set: (target, prop, value) => {
+                target[prop] = value;
+                this.updateUI();
+                return true;
+            },
+        })
     }
 
     updateUI() {
@@ -46,14 +58,74 @@ class Tabs {
         });
     }
 
+    activateTab(newTabIndex) {
+        this.state.activeTabIndex = newTabIndex;
+        this.buttonElements[newTabIndex].focus();
+    }
+
+    previousTab = () => {
+        const newTabIndex = this.state.activeTabIndex === 0
+            ? this.limitTabsIndex
+            : this.state.activeTabIndex - 1;
+
+        this.activateTab(newTabIndex);
+    };
+
+    nextTab = () => {
+        const newTabIndex = this.state.activeTabIndex === this.limitTabsIndex
+            ? 0
+            : this.state.activeTabIndex + 1;
+
+        this.activateTab(newTabIndex);
+    };
+
+    firstTab = () => {
+        this.activateTab(0)
+    };
+
+    lastTab = () => {
+        this.activateTab(this.limitTabsIndex);
+    };
+
+
     onButtonClick(buttonIndex) {
         this.state.activeTabIndex = buttonIndex;
-        this.updateUI();
+        // this.updateUI();
+    }
+
+    onKeyDown = (event) => {
+        const { code, metaKey } = event;
+
+        const action = {
+            ArrowLeft: this.previousTab,
+            ArrowRight: this.nextTab,
+            Home: this.firstTab,
+            End: this.lastTab,
+        }[code];
+
+
+        const isMacHomeKey = metaKey && code === 'ArrowLeft';
+        if (isMacHomeKey) {
+            this.firstTab();
+            // this.updateUI();
+            return;
+        }
+
+        const isMacEndKey = metaKey && code === 'ArrowRight';
+        if (isMacEndKey) {
+            this.lastTab();
+            // this.updateUI();
+            return;
+        }
+
+        action?.();
+        // this.updateUI();
     }
 
     bindEvents() {
         this.buttonElements.forEach((buttonElement, index) => {
             buttonElement.addEventListener('click', () => this.onButtonClick(index))
+            buttonElement.addEventListener('keydown', this.onKeyDown)
         })
     }
 };
