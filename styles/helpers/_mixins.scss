@@ -66,6 +66,20 @@
     overflow: hidden !important;
 }
 
+@mixin full-vw-centered-line($property: top) {
+    position: relative;
+
+    &::before {
+        @include abs-x;
+
+        content: '';
+        #{$property}: 0;
+        width: 100vw;
+        height: rem(1);
+        background-color: var(--color-darl-15);
+    }
+}
+
 // h1 { @include fluid-text(40, 28) }
 // h2 { @include fluid-text(36, 26) }
 // h3 { @include fluid-text(32, 24) }
