@@ -1,6 +1,13 @@
 @use '../helpers' as *;
 
 .summary {
+    &--2-cols {
+        .summary__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     &__list {
         display: flex;
         align-items: center;
