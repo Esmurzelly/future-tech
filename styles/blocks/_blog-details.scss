@@ -22,11 +22,32 @@
         &-inner {
             display: grid;
             grid-template-columns: 1fr rem(520);
+
+            @include tablet {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            &:not(:first-child) {
+                margin-top: 1.5em;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 1em;
+            }
         }
     }
 
     &__content {
-        border-right: var(--border);
+        @include tablet-above {
+            border-right: var(--border);
+        }
     }
 
     &__intro,
@@ -38,14 +59,40 @@
         @include laptop {
             padding-inline: rem(60);
         }
+
+        @include tablet {
+            padding-inline: 0;
+        }
+    }
+
+    &__intro,
+    &__actions,
+    &__summary {
+        @include tablet {
+            @include full-vw-centered-line(bottom);
+        }
     }
 
     &__intro,
     &__actions {
-        border-bottom: var(--border);
+        @include tablet-above {
+            border-bottom: var(--border);
+        }
     }
 
     &__actions {
         padding-block: fluid(50, 20);
+    }
+
+    &__main {
+        --initialMaxHeight: #{fluid(741)};
+
+        @include laptop {
+            --initialMaxHeight: #{fluid(692)};
+        }
+
+        @include mobile {
+            --initialMaxHeight: #{fluid(669)};
+        }
     }
 }

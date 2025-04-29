@@ -74,7 +74,7 @@
                                 explore the profound impact of AI in healthcare, from revolutionizing diagnostic
                                 accuracy to enhancing patient outcomes.</p>
                         </div>
-                        <div class="blog-details__main">
+                        <div class="blog-details__main expandable-content" data-js-expandable-content>
                             <h2 class="h4">Artificial Intelligence (AI)</h2>
                             <p>Artificial Intelligence (AI) has permeated virtually every aspect of our lives, and
                                 healthcare is no exception. The integration of AI in healthcare is ushering in a new era
@@ -121,13 +121,16 @@
                                 or identifying critical findings in chest X-rays, potentially indicative of
                                 life-threatening conditions.</p>
 
-                            <button type="button" class="blog-details__read-full-button button">
+                            <button type="button"
+                                class="blog-details__read-full-button button expandable-content__button"
+                                data-js-expandable-content-button>
                                 <span class="icon icon--gray-arrow-down">Read Full Blog</span>
                             </button>
                         </div>
                     </div>
                     <div class="blog-details__info">
-                        <div class="blog-details__actions blog-actions full-vw-line full-vw-line--bottom full-vw-line--right">
+                        <div
+                            class="blog-details__actions blog-actions full-vw-line full-vw-line--bottom full-vw-line--right">
                             <ul class="blog-actions__list">
                                 <li class="blog-actions__item">
                                     <button class="blog-actions__button is-active" type="button" aria-label="Dislike"
@@ -190,7 +193,7 @@
                                     <dt class="summary__key">Author Name</dt>
                                     <dd class="summary__value">Dr. Emily Walker</dd>
                                 </div>
-                                <div class="summary__item">
+                                <div class="summary__item summary__item--wide">
                                     <dt class="summary__key">Table of Contents</dt>
                                     <dd class="summary__value">
                                         <div class="table-of-contents">
@@ -376,6 +379,54 @@
                                 </a>
                             </div>
                         </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about" aria-labelledby="about-title">
+            <div class="about__inner container">
+                <header class="about__header">
+                    <img src="./images/about/icon-1.svg" alt="" class="about__icon" width="150" height="150">
+
+                    <div class="about__info">
+                        <p class="about__subtitle tag">Learn, Connect, and Innovate</p>
+                        <h2 class="about__title" id="about-title">Be Part of the Future Tech Revolution</h2>
+                    </div>
+                    <div class="about__description">
+                        <p>Immerse yourself in the world of future technology. Explore our comprehensive resources,
+                            connect with fellow tech enthusiasts, and drive innovation in the industry. Join a dynamic
+                            community of forward-thinkers.</p>
+                    </div>
+                </header>
+
+                <ul class="about__list">
+                    <li class="about__item">
+                        <a href="#" class="about-card tile">
+                            <h3 class="about-card__title circle-icon">Resource Access</h3>
+                            <div class="about-card_description">
+                                <p>Visitors can access a wide range of resources, including ebooks, whitepapers,
+                                    reports.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="about__item">
+                        <a href="#" class="about-card tile">
+                            <h3 class="about-card__title circle-icon">Community Forum</h3>
+                            <div class="about-card_description">
+                                <p>Join our active community forum to discuss industry trends, share insights, and
+                                    collaborate with peers.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="about__item">
+                        <a href="#" class="about-card tile">
+                            <h3 class="about-card__title circle-icon">Tech Events</h3>
+                            <div class="about-card_description">
+                                <p>Stay updated on upcoming tech events, webinars, and conferences to enhance your
+                                    knowledge.</p>
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </div>

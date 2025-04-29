@@ -2,9 +2,25 @@
 
 .summary {
     &--2-cols {
-        .summary__list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .summary {
+            &__list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: rem(30);
+                column-gap: rem(20);
+
+                @include laptop {
+                    row-gap: rem(20);
+                }
+            }
+
+            &__item {
+                &--wide {
+                    grid-column: -1 / 1;
+                    row-gap: fluid(16, 10);
+                    margin-top: rem(20);
+                }
+            }
         }
     }
 

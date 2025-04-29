@@ -6,8 +6,6 @@
     font-size: fluid($max, $min);
 }
 
-;
-
 @mixin hide {
     opacity: 0;
     visibility: hidden;
