@@ -32,14 +32,6 @@
                 }
             }
         }
-
-        @include mobile {
-            --colums: 1;
-
-            .bordered-grid__item:not(:last-child) {
-                border-bottom: var(--border);
-            }
-        }
     }
 
     &--3-cols {
@@ -93,7 +85,57 @@
         }
     }
 
+    &--4-cols {
+        --colums: 4;
+        --itemPaddingX: #{rem(50)};
+
+        column-gap: calc(var(--itemPaddingX) * 2);
+
+        @include laptop {
+            --itemPaddingX: #{rem(30)};
+        }
+
+        @include tablet-above {
+            .bordered-grid__item {
+
+                // Элементы из 1, 2, 3 колонок
+                &:nth-child(4n - 3),
+                &:nth-child(4n - 2),
+                &:nth-child(4n - 1) {
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: calc(100% + var(--itemPaddingX));
+                        width: rem(1);
+                        height: 100%;
+                        background-color: var(--color-dark-15);
+                    }
+                }
+            }
+        }
+
+        @include tablet {
+            --colums: 2;
+        }
+    }
+
     &__item {
         padding-block: var(--itemPaddingY);
+    }
+
+    &--2-cols,
+    &--4-cols {
+        @include mobile {
+            --colums: 1;
+
+            .bordered-grid__item {
+                &:not(:last-child) {
+                    border-bottom: var(--border);
+                }
+            }
+        }
     }
 }
