@@ -42,6 +42,10 @@
             padding-inline: rem(16);
             border-radius: rem(6);
         }
+
+        &:user-invalid {
+            border-color: var(--color-red);
+        }
     }
 
     &__body {

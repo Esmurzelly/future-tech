@@ -19,6 +19,7 @@
         justify-content: space-between;
         align-items: center;
         column-gap: 1rem;
+        margin-block: rem(30);
 
         @include mobile-s {
             flex-direction: column;

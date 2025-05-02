@@ -836,6 +836,16 @@ button[aria-label]::before {
     height: 3rem;
   }
 }
+@media (any-hover: hover) {
+  .soc1als--3-cols .soc1als__link:hover {
+    border-color: var(--color-accent);
+  }
+}
+@media (any-hover: none) {
+  .soc1als--3-cols .soc1als__link:active {
+    border-color: var(--color-accent);
+  }
+}
 .soc1als__list {
   display: flex;
   column-gap: 1.25rem;
@@ -1020,6 +1030,7 @@ button[aria-label]::before {
 .metrics__item {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: start;
   row-gap: 0.625rem;
   padding: 3.125rem;
 }
@@ -2402,6 +2413,9 @@ button[aria-label]::before {
     border-radius: 0.375rem;
   }
 }
+.field__control:user-invalid {
+  border-color: var(--color-red);
+}
 .field__body {
   display: flex;
   column-gap: 1rem;
@@ -2428,6 +2442,23 @@ button[aria-label]::before {
   }
 }
 
+.select__original-control {
+  min-width: 6.25rem;
+}
+@media (width > 47.99875rem) {
+  .select__original-control {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+  }
+}
 .select__body {
   position: relative;
 }
@@ -2588,6 +2619,9 @@ button[aria-label]::before {
   opacity: 0;
   visibility: hidden;
 }
+.checkbox__input:user-invalid {
+  border-color: var(--color-red);
+}
 .checkbox__input::after {
   content: "✔";
   color: var(--color-light);
@@ -2611,6 +2645,7 @@ button[aria-label]::before {
   justify-content: space-between;
   align-items: center;
   column-gap: 1rem;
+  margin-block: 1.875rem;
 }
 @media (width <= 30.06125rem) {
   .feedback-form__actions {
